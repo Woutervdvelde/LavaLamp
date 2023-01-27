@@ -1,13 +1,6 @@
 //Inspired by Default Cube tutorial for 2D Metaballs in blender
-
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d', { willReadFrequently: true });
-
-// Defaults
-const THRESHOLD = 210;
-const LAVA_COLOR = '#eb7135';
-const LAVA_RADIUS_MIN = 25;
-const LAVA_RAIDUS_MAX = 150;
 
 // Canvas sizing
 const resize = () => {
@@ -19,34 +12,13 @@ window.onresize = resize
 resize();
 
 
-// Sets all alpha values that are below the threshold to 0
-const filterCanvas = (threshold = THRESHOLD) => {
-    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    const data = imageData.data;
+// Defaults
+const THRESHOLD = 210;
+const LAVA_COLOR = '#eb7135';
+const LAVA_RADIUS_MIN = 25;
+const LAVA_RAIDUS_MAX = 150;
 
-    for (let i = 0; i < data.length; i += 4) {
-        const alpha = data[i + 3];
-        if (alpha < threshold) {
-            data[i + 3] = 0;
-        }
-    }
-
-    ctx.putImageData(imageData, 0, 0);
-}
-
-// Clears the canvas
-const clearCanvas = () => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-}
-
-
-let x = canvas.width / 2;
-let y = 0;
-const draw = () => {
-    clearCanvas();
-    drawBall(canvas.width / 2 - 50, canvas.height / 2, 100, LAVA_COLOR, 'transparent');
-    drawBall(x, y, 75, LAVA_COLOR, 'transparent');
-    filterCanvas();
-    y++;
-    window.requestAnimationFrame(draw);
-}
+const lavaLamp = new LavaLamp(canvas, ctx);
+lavaLamp.addBall(100, 100, 50);
+lavaLamp.addBall(200, 200, 50);
+lavaLamp.start();

@@ -1,14 +1,12 @@
-const LAVA_COLOR = '#eb7135';
-
 class MetaBall {
     x;
     y;
-    r;
+    radius;
     ctx;
     velocity;
     deleted;
 
-    constructor(ctx, x, y, r) {
+    constructor(ctx, x, y, radius) {
         this.ctx = ctx;
         this.velocity = { 
             x: Math.random() * 3, 
@@ -16,17 +14,17 @@ class MetaBall {
         };
         this.x = x;
         this.y = y;
-        this.r = r;
+        this.radius = radius;
     }
 
-    draw(x, y, radius) {
-        const gradient = ctx.createRadialGradient(x, y, radius / 4, x, y, radius);
+    draw() {
+        const gradient = this.ctx.createRadialGradient(this.x, this.y, this.radius / 4, this.x, this.y, this.radius);
         gradient.addColorStop(0, LAVA_COLOR);
         gradient.addColorStop(1, 'transparent');
-
-        ctx.arc(x, y, radius, 0, Math.PI * 2);
-        ctx.fillStyle = gradient;
-        ctx.fill();
+        
+        this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        this.ctx.fillStyle = gradient;
+        this.ctx.fill();
         this.update();
     }
 
@@ -34,7 +32,19 @@ class MetaBall {
         this.x += this.velocity.x;
         this.y += this.velocity.y;
 
-        if (this.y + this.r > canvas.height)
-            this.deleted = true;
+        // if (this.y + this.radius > canvas.height)
+            // this.deleted = true;
+
+        if (this.x + this.radius > canvas.width || this.x - this.radius < 0)
+            this.velocity.x *= -1;
+
+        if (this.y + this.radius > canvas.height || this.y - this.radius < 0)
+            this.velocity.y *= -1;
+
+        if (this.radius > LAVA_RAIDUS_MAX || this.radius < LAVA_RADIUS_MIN)
+            this.velocity.y *= -1;
+
+        this.radius += this.velocity.y / 10;
+        
     }
 }
