@@ -2,10 +2,22 @@ class LavaLamp {
     canvas;
     ctx;
     balls = [];
+    top;
+    bottom;
 
     constructor(canvas, ctx) {
         this.canvas = canvas;
         this.ctx = ctx;
+        this._generateTopAndBottom();
+    }
+
+    _generateTopAndBottom() {
+        const radius = this.canvas.width * 1.5;
+        const top = new MetaBall(this.ctx, 0, -(radius / 2), radius);
+        this.top = top;
+
+        const bottom = new MetaBall(this.ctx, 0, this.canvas.height + (radius / 2), radius);
+        this.bottom = bottom;
     }
 
     addBall(x, y, r) {
@@ -24,16 +36,21 @@ class LavaLamp {
                 this.balls.splice(index, 1);
             ball.draw();
         });
+        this.drawTopBottom();
 
         this.filterCanvas();
         window.requestAnimationFrame(this.update.bind(this));
     }
 
-    clearCanvas = () => {
+    clearCanvas() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
-    // Sets all alpha values that are below the threshold to 0
+    drawTopBottom() {
+        this.top.draw();
+        this.bottom.draw();
+    }
+
     filterCanvas = (threshold = THRESHOLD) => {
         const imageData = this.ctx.getImageData(0, 0, this.canvas.width, this.canvas.height);
         const data = imageData.data;

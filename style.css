@@ -6,7 +6,7 @@
 }
 
 :root {
-    --lavalamp-color: #ffa72a;
+    --lavalamp-color-dark: #ff7f2a;
     --lavalamp-color-r: 255;
     --lavalamp-color-g: 167;
     --lavalamp-color-b: 42;
@@ -22,6 +22,6 @@ body {
     width: fit-content;
     box-shadow: 
         inset 0 0 10px #fcd59e,
-        inset 0 0 41px 10px var(--lavalamp-color);
+        inset 0 0 41px 10px var(--lavalamp-color-dark);
     background-color: rgba(var(--lavalamp-color-r), var(--lavalamp-color-g), var(--lavalamp-color-b), 0.1);
 }
