@@ -22,12 +22,10 @@ class LavaLamp {
         this.balls.forEach((ball, index) => {
             if (ball.deleted)
                 this.balls.splice(index, 1);
-
             ball.draw();
         });
 
         this.filterCanvas();
-
         window.requestAnimationFrame(this.update.bind(this));
     }
 
@@ -44,6 +42,11 @@ class LavaLamp {
             const alpha = data[i + 3];
             if (alpha < threshold) {
                 data[i + 3] = 0;
+            } else {
+                data[i] = LAVA_COLOR_RGB.r;
+                data[i + 1] = LAVA_COLOR_RGB.g;
+                data[i + 2] = LAVA_COLOR_RGB.b;
+                data[i + 3] = 255;
             }
         }
     
