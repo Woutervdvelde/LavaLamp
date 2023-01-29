@@ -12,12 +12,36 @@ class LavaLamp {
     }
 
     _generateTopAndBottom() {
-        const radius = this.canvas.width * 1.5;
-        const top = new MetaBall(this.ctx, 0, -(radius / 2), radius);
-        this.top = top;
+        const height = this.canvas.height / 20;
+        const heightFromBottom = this.canvas.height - height;
+        const canvas = document.createElement('canvas');
+        canvas.width = this.canvas.width;
+        canvas.height = this.canvas.height;
+        const ctx = canvas.getContext('2d');
 
-        const bottom = new MetaBall(this.ctx, 0, this.canvas.height + (radius / 2), radius);
-        this.bottom = bottom;
+        let gradient = ctx.createLinearGradient(0, 0, 0, height);
+        gradient.addColorStop(0, LAVA_COLOR);
+        gradient.addColorStop(0.75, LAVA_COLOR);
+        gradient.addColorStop(1, 'transparent');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, canvas.width, height);
+        ctx.fill();
+
+        this.top = new Image(canvas.width, canvas.height);
+        this.top.src = canvas.toDataURL();
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        gradient = ctx.createLinearGradient(0, canvas.height, 0, heightFromBottom);
+        gradient.addColorStop(0, LAVA_COLOR);
+        gradient.addColorStop(0.75, LAVA_COLOR);
+        gradient.addColorStop(1, 'transparent');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, heightFromBottom, canvas.width, canvas.height);
+        ctx.fill();
+
+        this.bottom = new Image(canvas.width, canvas.height);
+        this.bottom.src = canvas.toDataURL();
     }
 
     addBall(x, y, r) {
@@ -47,8 +71,8 @@ class LavaLamp {
     }
 
     drawTopBottom() {
-        this.top.draw();
-        this.bottom.draw();
+        this.ctx.drawImage(this.top, 0, 0);
+        this.ctx.drawImage(this.bottom, 0, 0);
     }
 
     filterCanvas = (threshold = THRESHOLD) => {
