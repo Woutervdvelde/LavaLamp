@@ -1,26 +1,22 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow: hidden;
-}
-
-:root {
-    --lavalamp-color-dark: #ff7f2a;
-    --lavalamp-color-r: 255;
-    --lavalamp-color-g: 167;
-    --lavalamp-color-b: 42;
-}
-
-body {
-    background-color: #000;
-    font-family: 'Roboto', sans-serif;
-    color: #fff;
-}
-
 .room {
     display: flex;
     justify-content: center;
+}
+
+.room img {
+    object-fit: none;
+    height: var(--bedroom-height);
+}
+
+.room .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--bedroom-height);
+    background: url(../assets/bedroom_2.png);
+    filter: blur(10px);
+    z-index: -1;
 }
 
 .lavalamp {
