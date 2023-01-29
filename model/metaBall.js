@@ -9,14 +9,18 @@ class MetaBall {
 
     constructor(ctx, x, y, radius) {
         this.ctx = ctx;
-        this.velocity = {
-            x: (Math.random() * 0.1) * LAVA_SPEED,
-            y: ((Math.random() * 0.9) + 0.1) * LAVA_SPEED
-        }
+        this._generateVelocity();
         this.x = x;
         this.y = y;
         this.radius = radius;
         this.image = this._generateImage();
+    }
+
+    _generateVelocity() {
+        this.velocity = {
+            x: (Math.random() * 0.1) * LAVA_SPEED,
+            y: ((Math.random() * 0.9) + 0.1) * LAVA_SPEED
+        }
     }
 
     _generateImage() {
@@ -49,13 +53,12 @@ class MetaBall {
         this.x += this.velocity.x;
         this.y += this.velocity.y;
 
-        // if (this.y + this.radius > canvas.height)
-        // this.deleted = true;
-
         if (this.x  > canvas.width || this.x < 0)
             this.velocity.x *= -1;
 
-        if (this.y > canvas.height || this.y < 0)
+        if (this.y < 0)
+            this._generateVelocity();
+        if (this.y > canvas.height)
             this.velocity.y *= -1;
     }
 }

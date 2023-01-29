@@ -17,7 +17,7 @@ const THRESHOLD = 240;
 const LAVA_COLOR = '#ffa72a';
 const LAVA_COLOR_RGB = { r: 255, g: 167, b: 42 };
 const LAVA_RADIUS_MIN = 75;
-const LAVA_RAIDUS_MAX = 150;
+const LAVA_RAIDUS_MAX = 200;
 const LAVA_SPEED = 0.5;
 
 //random number between min and max
