@@ -32,6 +32,23 @@ img {
     max-width: 100%;
 }
 
+button {
+    padding: .5em 1em;
+    border: none;
+    background-color: white;
+    border-radius: 5px;
+    font-family: inherit;
+    user-select: none;
+}
+
+button:hover {
+    background-color: #eee;
+}
+
+button:active {
+    background-color: #ddd;
+}
+
 /* Content */
 .container {
     margin: 5em auto;

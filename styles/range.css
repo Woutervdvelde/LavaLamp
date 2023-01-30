@@ -21,7 +21,7 @@ input[type=range] {
     height: 18px;
     width: 18px;
     border-radius: 25px;
-    background: #FF7F2A;
+    background: var(--lavalamp-color);
     cursor: pointer;
     -webkit-appearance: none;
     margin-top: -6.5px;
@@ -45,7 +45,7 @@ input[type=range] {
     height: 18px;
     width: 18px;
     border-radius: 25px;
-    background: #FF7F2A;
+    background: var(--lavalamp-color);
     cursor: pointer;
   }
   input[type=range]::-ms-track {
@@ -76,7 +76,7 @@ input[type=range] {
     height: 18px;
     width: 18px;
     border-radius: 25px;
-    background: #FF7F2A;
+    background: var(--lavalamp-color);
     cursor: pointer;
   }
   input[type=range]:focus::-ms-fill-lower {

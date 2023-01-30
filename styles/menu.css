@@ -1,0 +1,160 @@
+#menu {
+    z-index: 2;
+  }
+  
+  #menu-bar {
+    width: 40px;
+    height: 40px;
+    margin: 30px 0 20px 20px;
+    cursor: pointer;
+  }
+  
+  .bar {
+    height: 5px;
+    width: 100%;
+    background-color: var(--lavalamp-color);
+    display: block;
+    border-radius: 5px;
+    transition: 0.3s cubic-bezier(.62,.28,.23,.99);
+  }
+  
+  #bar1 {
+    transform: translateY(-4px);
+  }
+  
+  #bar3 {
+    transform: translateY(4px);
+  }
+  
+  .nav {
+    transition: 0.3s cubic-bezier(.62,.28,.23,.99);
+    display: none;
+  }
+  
+  .nav ul {
+    padding: 0 .5em;
+  }
+  
+  .nav li {
+    list-style: none;
+    padding: .25em 0;
+    width: 150px;
+  }
+  
+  .nav li a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+  }
+  
+  .nav li a:hover {
+    font-weight: bold;
+  }
+  
+  .menu-bg, #menu {
+    top: 0;
+    left: 0;
+    position: absolute;
+  }
+  
+  .menu-bg {
+    z-index: 1;
+    width: 0;
+    height: 0;
+    margin: 30px 0 20px 20px;
+    background: var(--lavalamp-color);
+    border-radius: 50%;
+    transition: 0.3s cubic-bezier(.62,.28,.23,.99);
+  }
+  
+  .change {
+    display: block;
+  }
+  
+  .change .bar {
+    background-color: white;
+  }
+  
+  .change #bar1 {
+    transform: translateY(4px) rotateZ(-45deg);
+  }
+  
+  .change #bar2 {
+    opacity: 0;
+  }
+  
+  .change #bar3 {
+    transform: translateY(-6px) rotateZ(45deg);
+  }
+  
+  .change-bg {
+    width: 520px;
+    height: 460px;
+    transform: translate(-60%,-30%);
+  }
+
+.speed-slider {
+    display: flex;
+    border: 1px solid white;
+    border-radius: 5px;
+    user-select: none;
+}
+
+.speed-slider > div {
+    width: 100%;
+    height: 40px;
+}
+
+#speed_down {
+    display: flex;
+    background-color: white;
+}
+
+#speed_down::after {
+    content: "";
+    display: inline-block;
+    align-self: center;
+    margin: 0 auto;
+    width: 60%;
+    height: 5px;
+    background-color: var(--lavalamp-color);
+    border-radius: 5px;
+}
+
+#current_speed {
+    text-align: center;
+}
+
+#speed_up {
+    display: flex;
+    position: relative;
+    background-color: white;
+}
+
+#speed_up::after {
+    content: "";
+    align-self: center;
+    margin: 0 auto;
+    width: 5px;
+    height: 60%;
+    background-color: var(--lavalamp-color);
+    border-radius: 5px;
+}
+
+#speed_up::before {
+    content: "";
+    position: absolute;
+    left: calc(20% - 2.5px);
+    align-self: center;
+    width: 60%;
+    height: 5px;
+    background-color: var(--lavalamp-color);
+    border-radius: 5px;
+}
+
+#current_speed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

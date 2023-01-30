@@ -8,6 +8,7 @@
 }
 
 :root {
+    --lavalamp-color: #ffa72a;
     --lavalamp-color-dark: #ff7f2a;
     --lavalamp-color-r: 255;
     --lavalamp-color-g: 167;
