@@ -75,8 +75,8 @@ class LavaLamp {
         this.ctx.drawImage(this.bottom, 0, 0);
     }
 
-    filterCanvas = (threshold = THRESHOLD) => {
-        const imageData = this.ctx.getImageData(0, 0, this.canvas.width, this.canvas.height);
+    filterCanvas = (threshold = THRESHOLD, canvas = this.canvas, ctx = this.ctx) => {
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
         const data = imageData.data;
     
         for (let i = 0; i < data.length; i += 4) {
@@ -91,6 +91,6 @@ class LavaLamp {
             }
         }
     
-        this.ctx.putImageData(imageData, 0, 0);
+        ctx.putImageData(imageData, 0, 0);
     }
 }

@@ -118,6 +118,10 @@ table .step {
     background-color: inherit;
 }
 
+#circle_example_canvas {
+    width: 100%;
+}
+
 @media screen and (max-width: 768px) {
     .mobile-first {
         order: -100;

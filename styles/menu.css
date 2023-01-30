@@ -115,7 +115,7 @@
     display: inline-block;
     align-self: center;
     margin: 0 auto;
-    width: 60%;
+    width: 50%;
     height: 5px;
     background-color: var(--lavalamp-color);
     border-radius: 5px;
@@ -136,7 +136,7 @@
     align-self: center;
     margin: 0 auto;
     width: 5px;
-    height: 60%;
+    height: 50%;
     background-color: var(--lavalamp-color);
     border-radius: 5px;
 }
@@ -144,9 +144,9 @@
 #speed_up::before {
     content: "";
     position: absolute;
-    left: calc(20% - 2.5px);
+    left: calc(25% - 1px);
     align-self: center;
-    width: 60%;
+    width: 50%;
     height: 5px;
     background-color: var(--lavalamp-color);
     border-radius: 5px;
