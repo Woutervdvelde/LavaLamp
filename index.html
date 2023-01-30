@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/lavalamp.css">
+    <link rel="stylesheet" href="styles/content.css">
+    <link rel="stylesheet" href="styles/range.css">
     <title>LavaLamp</title>
 </head>
+
 <body>
     <div class="room">
         <img src="assets/bedroom_2.png" alt="room">
@@ -18,8 +22,75 @@
         </div>
         <div class="background"></div>
     </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Lavalamp Challenge</h1>
+            <span>A challenge by Storm Tersteeg</span>
+        </div>
+        <div class="explenation">
+            <div class="left">
+                <h3>Explenation</h3>
+                <p>One day we got a message saying:<br><br>
+                    "<span class="discord-mention">@everyone</span> I hereby challenge everyone using your own strategy
+                    to program a lavalamp, deadline is next Sunday. you can use anything, programming language,
+                    frameworks, programs"<br><br>
+                    And so everyone set off doing exactly that.
+                </p>
+            </div>
+            <div class="right">
+                <img src="docs/message.png" alt="Discord message" />
+                <span class="caption">Discord message saying "@everyone I hereby challenge everyone using your own
+                    strategy to program a lavalamp, deadline is next Sunday. you can use anything, programming language,
+                    frameworks, programs"</span>
+            </div>
+        </div>
+        <div class="explenation">
+            <div class="left">
+                <img src="docs/page1.png" alt="Lavalamp" />
+                <span class="caption">Original idea sketch</span>
+            </div>
+            <div class="right mobile-first">
+                <h3>The idea</h3>
+                <p>Since my preffered language is JavaScript, I set off trying to make this using JavaScript and HTML5
+                    Canvas.
+                    I started off by making a simple lavalamp, moving simple circles up and down. But I wanted to make
+                    it more interesting, so I added a metaball effect.<br><br>
+                    The idea came from a video from <span class="discord-mention"><a
+                            href="https://www.youtube.com/watch?v=4JT_43qc0Dc">Default Cube</a></span>, where he made a
+                    2D metaball system using Blenders shader nodes.<br><br>
+                <table>
+                    <tr>
+                        <td class="step">Step 1:</td>
+                        <td>Make a circle.</td>
+                    </tr>
+                    <tr>
+                        <td class="step">Step 2:</td>
+                        <td>Fill circle with RadialGradient. Lava color from center to transparent on the outside.</td>
+                    </tr>
+                    <tr>
+                        <td class="step">Step 3:</td>
+                        <td>Scan each pixel and check if the transparency is above or below the threshold.</td>
+                    </tr>
+                    <tr>
+                        <td class="step">Step 4:</td>
+                        <td>Set transparency to 100 when bellow threshold, set transparency to 0 when above threshold.
+                        </td>
+                    </tr>
+                </table>
+                </p>
+            </div>
+        </div>
+        <div class="example">
+            <h3>Example</h3>
+            <p>Here you can see an example of the unprocessed circle, and how they collide.</p>
+            <div id="circle_example"></div>
+            <input id="circle_slider" type="range" min="0" max="50" value="0"/>
+        </div>
+    </div>
     <script src="model/metaBall.js"></script>
     <script src="model/lavaLamp.js"></script>
     <script src="app.js"></script>
 </body>
+
 </html>

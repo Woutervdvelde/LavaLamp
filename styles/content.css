@@ -1,0 +1,116 @@
+/* Components */
+
+.discord-mention {
+    background-color: #4e4d73;
+    padding: 0.2em;
+    border-radius: 5px;
+}
+
+.discord-mention>a {
+    color: #fff;
+}
+
+.caption {
+    font-size: 0.8em;
+    color: #999;
+    margin-top: 0.5em;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Content */
+.container {
+    margin: 5em auto;
+    width: 70%;
+}
+
+.container>div {
+    margin-bottom: 5em;
+}
+
+.header {
+    text-align: center;
+}
+
+.header span {
+    font-weight: 100;
+}
+
+.explenation {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+}
+
+.explenation .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.explenation .right img {
+    max-width: 100%;
+}
+
+table .step {
+    width: 1%;
+    white-space: nowrap;
+    padding-right: .5em;
+    vertical-align: top;
+}
+
+.example {
+    text-align: center;
+}
+
+#circle_example {
+    position: relative;
+    overflow-x: hidden;
+}
+
+#circle_example img {
+    position: absolute;
+    user-select: none;
+    pointer-events: none;
+}
+
+#circle_example img:nth-child(1) {
+    left: 0;
+}
+
+#circle_example img:nth-child(2) {
+    right: 0;
+}
+
+#circle_slider {
+    width: 50%;
+    background-color: inherit;
+}
+
+@media screen and (max-width: 768px) {
+    .mobile-first {
+        order: -100;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    .explenation {
+        grid-template-columns: 1fr;
+    }
+}

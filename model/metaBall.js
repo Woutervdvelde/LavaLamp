@@ -18,8 +18,8 @@ class MetaBall {
 
     _generateVelocity() {
         this.velocity = {
-            x: (Math.random() * 0.1) * LAVA_SPEED,
-            y: ((Math.random() * 0.9) + 0.1) * LAVA_SPEED
+            x: (Math.random() * 0.1),
+            y: ((Math.random() * 0.9) + 0.1)
         }
     }
 
@@ -50,8 +50,8 @@ class MetaBall {
     }
 
     update() {
-        this.x += this.velocity.x;
-        this.y += this.velocity.y;
+        this.x += this.velocity.x * LAVA_SPEED;
+        this.y += this.velocity.y * LAVA_SPEED;
 
         if (this.x  > canvas.width || this.x < 0)
             this.velocity.x *= -1;

@@ -32,3 +32,20 @@ lavaLamp.addBall(0, canvas.height, random());
 lavaLamp.addBall(canvas.width / 2, canvas.height, random());
 lavaLamp.addBall(canvas.width, canvas.height, random());
 lavaLamp.start();
+
+//for example showcase
+const exampleContainer = document.getElementById('circle_example');
+const exampleSlider = document.getElementById('circle_slider');
+
+const ball1 = lavaLamp.balls[0].image;
+const ball2 = lavaLamp.balls[1].image;
+exampleContainer.appendChild(ball1);
+exampleContainer.appendChild(ball2);
+
+const exampleContainerHeight = ball1.height > ball2.height ? ball1.height : ball2.height;
+exampleContainer.style.height = `${exampleContainerHeight + 10}px`;
+
+exampleSlider.oninput = (e) => {
+    ball1.style.left = `${e.target.value}%`;
+    ball2.style.right = `${e.target.value}%`;
+}
