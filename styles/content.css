@@ -67,19 +67,19 @@ button:active {
     font-weight: 100;
 }
 
-.explenation {
+.explanation {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1em;
 }
 
-.explenation .right {
+.explanation .right {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.explenation .right img {
+.explanation .right img {
     max-width: 100%;
 }
 
@@ -131,7 +131,7 @@ table .step {
         width: 90%;
     }
 
-    .explenation {
+    .explanation {
         grid-template-columns: 1fr;
     }
 }
